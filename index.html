@@ -5,24 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV El Jausyan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
-        }
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(50px);
-            opacity: 0.6;
-            z-index: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-[#0d1117] text-[#c9d1d9] font-sans relative overflow-x-hidden">
     <!-- Ornamen Blobs sebagai background -->
@@ -176,7 +159,7 @@
             <div class="space-y-6">
                 <div class="bg-[#0d1117] border border-[#303d3d] rounded-xl p-6 pb-16 shadow-md hover:scale-[1.01] transition-transform relative">
                     <img src="img/drone.jpeg" alt="Drone Project" class="w-full h-52 object-cover rounded-lg mb-4">
-                    <h3 class="text-xl font-semibold text-white">Autonomous Drone Project using ROS 2</h3>
+                    <h3 class="text-xl font-semibold text-white">Autonomous Drone navigation Using Ardupilot ROS2</h3>
                     <p class="text-sm text-[#c9d1d9] mt-2">Developing a drone system with automatic navigation using ROS 2, MAVROS, and ArduPilot. Missions include autonomous takeoff, waypoint navigation, and landing.</p>
                     <div class="flex flex-wrap gap-2 mt-4">
                         <img src="https://img.shields.io/badge/-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux">
@@ -266,6 +249,28 @@
                       </svg>
                     </a>
                 </div>
+                <div class="bg-[#0d1117] border border-[#303d3d] rounded-xl p-6 pb-16 shadow-md hover:scale-[1.01] transition-transform relative">
+                        <div class="flex flex-row gap-4 justify-center mb-4">
+                            <img src="img/gst1.jpeg" alt="AI Polusi Udara" class="w-64 h-64 object-cover rounded-lg">
+                            <img src="img/gst2.jpeg" alt="AI Polusi Udara" class="w-64 h-64 object-cover rounded-lg">
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">KRTI 2024, Ground Control Drone Video Streaming Using Gstreamer</h3>
+                        <p class="text-sm text-[#c9d1d9] mt-2"><i>Soeroku</i> drone that used by Bayucaraka ITS UAV Research Team is capable to centering payload using opencv and pretrained AI Model, I Developed a Streaming systems that transmit video from drone camera into UDP, so we can monitor and watch the realtime payload detection, this system is used to minitor and evaluate our pretrained AI Model</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <img src="https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                            <img src="https://img.shields.io/badge/-ROS-22314E?style=for-the-badge&logo=ros&logoColor=white" alt="ROS">
+                            <img src="https://img.shields.io/badge/-C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++">
+                            <img src="https://img.shields.io/badge/-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux">
+                        </div>
+                        <a href="https://github.com/jausyan-sukses/new-teleop.git"
+                        target="_blank"
+                        class="absolute bottom-4 right-4 flex items-center px-4 py-2 text-xs font-semibold bg-orange-500 text-white rounded shadow hover:bg-orange-600 transition-colors z-10">
+                        <span class="mr-2">View Project</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                        </a>
+                    </div>
             </div>
         </div>
     </section>
@@ -377,57 +382,8 @@
         </div>
     </section>
 
-    <script>
-        const typingTexts = [
-            "Welcome to my portfolio terminal.",
-            "Robotics and AI Developer.",
-            "Machine Learning Scientist.",
-            "Embedded Systems Engineer.",
-            "Full-stack Web and Android developer",
-            "Data Scientist.",
-        ];
-        const typingElement = document.getElementById('terminal-typing');
-        let textIdx = 0, charIdx = 0, isDeleting = false;
 
-        function typeText() {
-            if (!typingElement) return;
-            const currentText = typingTexts[textIdx];
-            if (!isDeleting) {
-                typingElement.innerHTML = currentText.substring(0, charIdx + 1) + '<span class="animate-pulse">|</span>';
-                charIdx++;
-                if (charIdx === currentText.length) {
-                    isDeleting = true;
-                    setTimeout(typeText, 1200);
-                } else {
-                    setTimeout(typeText, 50);
-                }
-            } else {
-                typingElement.innerHTML = currentText + '<span class="animate-pulse">|</span>';
-                setTimeout(() => {
-                    isDeleting = false;
-                    charIdx = 0;
-                    textIdx = (textIdx + 1) % typingTexts.length;
-                    typingElement.innerHTML = '';
-                    setTimeout(typeText, 400);
-                }, 800);
-            }
-        }
-        typeText();
-
-        // Animasi fade-in saat discroll
-        function handleFadeIn() {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80 && rect.bottom > 80) {
-                    el.classList.add('show');
-                } else {
-                    el.classList.remove('show');
-                }
-            });
-        }
-        window.addEventListener('scroll', handleFadeIn);
-        window.addEventListener('DOMContentLoaded', handleFadeIn);
-    </script>
+    <script src="script.js"></script>
 
     <!-- Footer -->
     <footer class="w-full bg-[#0d1117] py-8 border-t border-[#21262d]">
